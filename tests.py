@@ -1,18 +1,24 @@
 import unittest
-from functions.get_file_content import get_file_content
+from functions.write_file import write_file
 
 
 class TestGetFilesInfo(unittest.TestCase):
-    def test_get_file_content_main(self):
-        result = get_file_content("calculator", "main.py")
+    def test_write_file(self):
+        result = write_file("calculator",
+                            "lorem.txt",
+                            "wait, this isn't lorem ipsum")
         print(result)
-        
-    def test_get_file_content_calculator(self):
-        result = get_file_content("calculator", "pkg/calculator.py")
+    
+    def test_write_file_new(self):
+        result = write_file("calculator",
+                            "pkg/morelorem.txt",
+                            "lorem ipsum dolor sit amet")
         print(result)
-        
-    def test_get_file_content_error(self):
-        result = get_file_content("calculator", "/bin/cat")
+    
+    def test_write_file_error(self):
+        result = write_file("calculator",
+                            "/tmp/temp.txt",
+                            "this should not be allowed")
         print(result)
 
 if __name__ == "__main__":
