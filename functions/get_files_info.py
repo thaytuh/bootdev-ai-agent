@@ -2,6 +2,8 @@ import os
 from google.genai import types
 
 def get_files_info(working_directory, directory=None):
+    if not directory:
+        directory = "."
     path = os.path.join(working_directory, directory)
     if directory != "." and directory not in os.listdir(working_directory):
         return f'Error: Cannot list "{directory}" as it is outside the permitted working directory'
